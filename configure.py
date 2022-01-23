@@ -1809,7 +1809,7 @@ def generate_build_info(build_paths, modules, cc, arch, osinfo, options):
         output = []
         for (obj_file, src) in zip(objects, sources):
             info = {
-                'src': src,
+                'src':  '"' + src + '"' if platform.system() == 'Windows' else src,
                 'obj': obj_file,
                 'isa_flags': _isa_specific_flags(src)
                 }
